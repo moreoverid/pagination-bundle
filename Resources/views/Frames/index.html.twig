@@ -1,0 +1,36 @@
+{# pagination #}
+{% if pagination.total_pages > 1 %}
+    <ul class="{{ class is defined ? class : 'pagination' }}">
+        {% for i in pagination.current_pages_array %}
+            {# on first loop #}
+            {% if loop.first %}
+                {% if pagination.current_page <= 0 %}{% set current_page = 1 %}{% endif %}
+                {# << < #}
+                {% if pagination.current_page != 1 %}
+                    <li>
+                        <a href="{{ path(app.request.attributes.get('_route'), {'page': 1}) }}#top"><span>&laquo;&laquo;</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ path(app.request.attributes.get('_route'), {'page': pagination.current_page - 1}) }}#top"><span>&laquo;</span></a>
+                    </li>
+                {% endif %}
+            {% endif %}
+
+            {# center of pagination #}
+            {% if pagination.current_page == i %}
+                <li class="active"><a href="#">{{ i }}</a></li>
+            {% else %}
+                <li><a href="{{ path(app.request.attributes.get('_route'), { 'page': i}) }}#top">{{ i }}</a></li>
+            {% endif %}
+
+            {# on last loop #}
+            {% if loop.last %}
+                {% if pagination.current_page != pagination.total_pages %}
+                    <li><a href="{{ path(app.request.attributes.get('_route'), { 'page': pagination.current_page + 1}) }}#top"><span>&raquo;</span></a></li>
+                    <li><a href="{{ path(app.request.attributes.get('_route'), { 'page': pagination.total_pages}) }}#top"><span>&raquo;&raquo;</span></a></li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+    </ul>
+{% endif %}

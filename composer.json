@@ -1,0 +1,30 @@
+{
+  "name" : "moreoverid/paginationbundle",
+  "description" : "A pagination bundle",
+  "type" : "symfony-bundle",
+  "authors" : [{
+    "name" : "pagination",
+    "email" : "moreoverid@bk.ru"
+  }],
+  "keywords" : [
+    "pagination bundle"
+  ],
+  "license" : [
+    "GPLv3"
+  ],
+  "require" : {
+  },
+  "autoload" : {
+    "psr-0" : {
+      "Moreoverid\\PaginationBundle" : ""
+    }
+  },
+  "target-dir" : "Moreoverid/PaginationBundle",
+  "repositories" : [{
+  }],
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "0.1-dev"
+    }
+  }
+}
