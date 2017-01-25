@@ -58,6 +58,7 @@ some_route_name:
 // in controller
 public function yourMethodAction(Request $request, $page = 1)
 {
+    ...
      return $this->render('DemoBundle:Default:some_template.html.twig',
             array(
                 'page' => $page,
