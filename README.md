@@ -47,7 +47,7 @@ $collection = $this->getDoctrine()->getRepository('DemoBundle:SomeEntity')
     ->findBy(array(), array(), $paginator['count_per_page'], $paginator['offset']);
 ```
 
-3) Add page variable to your route
+3) Add page variable to your route.yml and controller:
 ```yml
 # in routing.yml
 some_route_name:
@@ -62,7 +62,7 @@ public function yourMethodAction(Request $request, $page = 1)
             array(
                 'page' => $page,
                 'paginator' => $paginator,
-                '$collection' => $collection,
+                'collection' => $collection,
             ));
 }
 ```
